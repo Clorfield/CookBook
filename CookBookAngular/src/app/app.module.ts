@@ -11,6 +11,7 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule }   from '@angular/common/http';
 
 @NgModule({
    declarations: [
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
       BrowserModule,
       AppRoutingModule,
       BrowserAnimationsModule,
-      FormsModule
+      FormsModule,
+      HttpClientModule
    ],
    providers: [],
    bootstrap: [

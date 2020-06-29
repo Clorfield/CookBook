@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeModel } from 'src/models/recipe-model';
 import { orderBy } from 'lodash';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-recipe-list',
@@ -24,12 +25,13 @@ export class RecipeListComponent implements OnInit {
 
   selectedSortOption = '';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }
   
   public sortRecipeByOption(event) {
+    this.http.get('/api/cookbook').subscribe((data:any) => console.log(data));
     this.selectedSortOption = event.target.value;
     switch(this.selectedSortOption) {
       case 'Title - asc':
