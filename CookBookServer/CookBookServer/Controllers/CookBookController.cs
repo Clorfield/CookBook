@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using CookBookBL.BL;
+using CookBookDAL.Models;
+using CookBookDAL.Repositories;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -9,29 +13,21 @@ namespace CookBookServer.Controllers
     [Route("api/CookBook")]
     public class CookBookController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
         private readonly ILogger<CookBookController> _logger;
+        private readonly IMapper _mapper;
+        private readonly RecipeBl _recipeBl;
 
-        public CookBookController(ILogger<CookBookController> logger)
+        public CookBookController(ILogger<CookBookController> logger, IMapper mapper)
         {
+            _mapper = mapper;
             _logger = logger;
+            _recipeBl = new RecipeBl(_mapper);
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public List<RecipeDto> Get()
         {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            })
-            .ToArray();
+            return _recipeBl.GetRecipes();
         }
     }
 }
