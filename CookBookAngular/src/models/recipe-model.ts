@@ -4,6 +4,7 @@ export class RecipeModel {
     shortDescription: string;
     description: string;
     ingredients: Ingredient[];
+    fatherRecipeId: number
 }
 
 export class Ingredient {

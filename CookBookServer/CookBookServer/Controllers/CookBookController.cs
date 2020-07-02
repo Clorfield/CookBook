@@ -1,12 +1,9 @@
 ﻿using AutoMapper;
 using CookBookBL.BL;
 using CookBookDAL.Models;
-using CookBookDAL.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace CookBookServer.Controllers
 {
@@ -28,6 +25,12 @@ namespace CookBookServer.Controllers
         public List<RecipeDto> Get()
         {
             return _recipeBl.GetRecipes();
+        }
+
+        [HttpGet("GetRecipe/{recipeId}")]
+        public RecipeDto GetRecipe([FromRoute] int recipeId)
+        {
+            return _recipeBl.FindRecipeById(recipeId);
         }
     }
 }

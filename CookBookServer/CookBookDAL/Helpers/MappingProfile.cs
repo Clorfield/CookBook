@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using CookBookDAL.MockData;
 using CookBookDAL.Models;
-using System.Collections.Generic;
 
 namespace CookBookDAL.Helpers
 {
