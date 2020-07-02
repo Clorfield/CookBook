@@ -1,0 +1,15 @@
+.main-breadcrumbs {
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+  }
+
+.breadcrumbs-in-KB {
+    display: flex;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #1986CA;
+    cursor: pointer;
+    line-height: 1.2;
+  }

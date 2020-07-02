@@ -28,7 +28,7 @@ namespace CookBookServer.Controllers
         }
 
         [HttpGet("GetRecipe/{recipeId}")]
-        public RecipeDto GetRecipe([FromRoute] int recipeId)
+        public RecipeDetails GetRecipe([FromRoute] int recipeId)
         {
             return _recipeBl.FindRecipeById(recipeId);
         }

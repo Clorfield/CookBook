@@ -9,7 +9,7 @@ namespace CookBookDAL.MockData
             new Recipe() {
                 id = 1,
                 title = "BestDelishesRecipe",
-                shortDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit", 
+                shortDescription = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", 
                 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et volutpat tellus. Morbi urna nisi, laoreet at libero sit amet, maximus malesuada turpis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean at risus quis magna condimentum dapibus. Phasellus ut varius nulla. Fusce vehicula massa sit amet vulputate ultrices. Morbi tristique sapien eget erat tempus egestas.",
                 ingredients = new List<IngredientDto>() { new IngredientDto() { title = "Apple", amount = 2 }, new IngredientDto() { title = "Egg", amount = 6 }, new IngredientDto() { title = "Cheese", amount = 25 } } },
             new Recipe() {
@@ -37,6 +37,13 @@ namespace CookBookDAL.MockData
                 description = "Proin quis tincidunt enim, semper aliquet dui. Nam blandit sapien vel eros euismod imperdiet. Cras fringilla tortor a ligula commodo, faucibus sagittis est hendrerit. Aenean vitae venenatis ante. Suspendisse potenti. Suspendisse vehicula risus in sapien scelerisque, in tincidunt purus suscipit. Etiam volutpat tempor nisl, vel luctus nulla aliquam in. Etiam dictum vitae est sed pretium. Phasellus id lectus vel ligula consectetur rhoncus ut ut nibh. Etiam feugiat a ligula et elementum. Donec eget leo euismod, auctor nisi sit amet, rhoncus mi. Proin sodales vitae elit vel varius. In hac habitasse platea dictumst.",
                 ingredients = new List<IngredientDto>() { new IngredientDto() { title = "Pasta", amount = 14 }, new IngredientDto() { title = "Tomato", amount = 2 }, new IngredientDto() { title = "Cheese", amount = 13 } },
                 fatherRecipeId = 2},
+            new Recipe() {
+                id = 6,
+                title = "ReallyGood2.0",
+                shortDescription = "Curabitur mollis turpis ac congue convallis.",
+                description = "Proin quis tincidunt enim, semper aliquet dui. Nam blandit sapien vel eros euismod imperdiet. Cras fringilla tortor a ligula commodo, faucibus sagittis est hendrerit. Aenean vitae venenatis ante. Suspendisse potenti. Suspendisse vehicula risus in sapien scelerisque, in tincidunt purus suscipit. Etiam volutpat tempor nisl, vel luctus nulla aliquam in. Etiam dictum vitae est sed pretium. Phasellus id lectus vel ligula consectetur rhoncus ut ut nibh. Etiam feugiat a ligula et elementum. Donec eget leo euismod, auctor nisi sit amet, rhoncus mi. Proin sodales vitae elit vel varius. In hac habitasse platea dictumst.",
+                ingredients = new List<IngredientDto>() { new IngredientDto() { title = "Pasta", amount = 14 }, new IngredientDto() { title = "Tomato", amount = 2 }, new IngredientDto() { title = "Cheese", amount = 13 } },
+                fatherRecipeId = 5}
         };
     }
 }

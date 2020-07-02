@@ -7,6 +7,15 @@ export class RecipeModel {
     fatherRecipeId: number
 }
 
+export class RecipeDetail {
+    id: number;
+    title: string;
+    shortDescription: string;
+    description: string;
+    ingredients: Ingredient[];
+    parentRecipes: RecipeModel[];
+}
+
 export class Ingredient {
     id: number;
     title: string;
