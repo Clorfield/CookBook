@@ -42,5 +42,41 @@ namespace CookBookDAL.Repositories
             var itemIndex = MockedData.recipes.FindIndex(r => r.id == item.id);
             MockedData.recipes[itemIndex] = _mapper.Map<Recipe>(item);
         }
+
+        public List<RecipeDto> GetAllChildrenRecipes(int id)
+        {
+            var recipe = MockedData.recipes.Find(r => r.id == id);
+            List<Recipe> children = new List<Recipe>();
+            GetChildrenNodes(children, recipe);
+
+            return _mapper.Map<List<RecipeDto>>(children);
+        }
+
+        public void GetChildrenNodes(List<Recipe> children, Recipe recipe)
+        {
+            if (recipe.childrenRecipies != null)
+            {
+                foreach (Recipe rec in recipe.childrenRecipies)
+                {
+                    children.Add(rec);
+                    GetChildrenNodes(children, rec);
+                }
+            }
+        }
+
+        public void RemoveRecipeFromParentsRecipies(int id)
+        {
+            var recipe = MockedData.recipes.Find(r => r.id == id);
+            if (recipe.fatherRecipeId != 0)
+            {
+                for(int i = 0; i < MockedData.recipes.Count; i++)
+                {
+                    if (MockedData.recipes[i].id == recipe.fatherRecipeId)
+                    {
+                        MockedData.recipes[i].childrenRecipies = MockedData.recipes[i].childrenRecipies.Where(r => r.id != id).ToList();
+                    }
+                }
+            }
+        }
     }
 }

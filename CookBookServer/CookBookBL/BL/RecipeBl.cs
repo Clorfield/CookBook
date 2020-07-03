@@ -33,9 +33,20 @@ namespace CookBookBL.BL
             return _recipeRepository.GetRecipes();
         }
 
-        public void RemoveRecipe(int id)
+        public List<RecipeDto> RemoveRecipe(int id)
         {
+            var childrenRecipies = _recipeRepository.GetAllChildrenRecipes(id);
+            if (childrenRecipies.Count > 0)
+            {
+                foreach(RecipeDto rec in childrenRecipies)
+                {
+                    _recipeRepository.RemoveRecipe(rec.id);
+                }
+            }
+            _recipeRepository.RemoveRecipeFromParentsRecipies(id);
             _recipeRepository.RemoveRecipe(id);
+
+            return childrenRecipies;
         }
 
         public void UpdateRecipe(RecipeDto item)

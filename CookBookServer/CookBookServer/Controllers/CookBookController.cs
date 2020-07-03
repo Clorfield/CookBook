@@ -32,5 +32,11 @@ namespace CookBookServer.Controllers
         {
             return _recipeBl.FindRecipeById(recipeId);
         }
+
+        [HttpPost("DeleteRecipe")]
+        public List<RecipeDto> DeleteRecipe([FromBody] int recipeId)
+        {
+            return _recipeBl.RemoveRecipe(recipeId);
+        }
     }
 }

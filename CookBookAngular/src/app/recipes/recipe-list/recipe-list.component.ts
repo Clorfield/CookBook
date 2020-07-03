@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { RecipeModel } from 'src/models/recipe-model';
 import { orderBy } from 'lodash';
 import { RecipesService } from 'src/services/recipes.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from "rxjs/operators";
 
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.css']
 })
-export class RecipeListComponent implements OnInit {
+export class RecipeListComponent implements OnInit, OnDestroy {
 
   recipes: RecipeModel[] = [];
 
@@ -16,13 +18,20 @@ export class RecipeListComponent implements OnInit {
     'Title - asc',
     'Title - desc'
   ];
-
   selectedSortOption = '';
+
+  private destroy$: Subject<any> = new Subject<any>();
 
   constructor(private recipesService: RecipesService) { }
 
   ngOnInit() {
     this.recipesService.getRecipes().subscribe((recipes: RecipeModel[]) => this.recipes = recipes);
+
+    this.recipesService.deleteRecipeSubject$.pipe(
+      takeUntil(this.destroy$)
+    ).subscribe((id: number) => {
+      this.recipes = this.recipes.filter(r => r.id != id);
+    });
   }
   
   public sortRecipeByOption(event) {
@@ -37,4 +46,8 @@ export class RecipeListComponent implements OnInit {
       }
   }
 
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.unsubscribe();
+  }
 }

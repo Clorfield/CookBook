@@ -8,7 +8,7 @@ namespace CookBookBL.Interfaces
         void AddRecipe(AddRecipeDto item);
         RecipeDetails FindRecipeById(int id);
         List<RecipeDto> GetRecipes();
-        void RemoveRecipe(int id);
+        List<RecipeDto> RemoveRecipe(int id);
         void UpdateRecipe(RecipeDto item);
     }
 }

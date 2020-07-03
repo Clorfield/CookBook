@@ -13,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule }   from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { ConfirmDialogService } from 'src/services/confirm-dialog.service';
 
 @NgModule({
    declarations: [
@@ -22,7 +24,8 @@ import { RouterModule } from '@angular/router';
       RecipeListComponent,
       RecipeDetailComponent,
       RecipeItemComponent,
-      FooterComponent
+      FooterComponent,
+      ConfirmDialogComponent,
    ],
    imports: [
       BrowserModule,
@@ -32,7 +35,12 @@ import { RouterModule } from '@angular/router';
       HttpClientModule,
       RouterModule
    ],
-   providers: [],
+   exports: [
+      ConfirmDialogComponent
+   ],
+   providers: [
+      ConfirmDialogService
+   ],
    bootstrap: [
       AppComponent
    ]
