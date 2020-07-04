@@ -1,0 +1,24 @@
+<form class="form" formGroup="addRecipeForm" (ngSubmit)="addRecipe()">
+  <h2>Create your own culinary masterpiece!</h2>
+  <hr/>
+  <div class="form-group">
+      <label>Title:</label>
+      <input class="form-control" name="title" formControlName="title" />
+  </div>
+  <div class="form-group">
+    <label>Add ingredient:</label>
+  </div>
+  <div class="form-group">
+      <label>Some words about your recipe:</label>
+      <input class="form-control" name="shortDescription" formControlName="shortDescription" />
+  </div>
+  <div class="form-group">
+      <label>Full description:</label>
+      <input class="form-control" name="description" formControlName="description" />
+  </div>
+  <div class="form-group">
+      <button class="btn btn-default" [disabled]="addRecipeForm.invalid">
+          Create!
+      </button>
+  </div>
+</form>

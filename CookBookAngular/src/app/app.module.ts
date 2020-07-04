@@ -10,11 +10,12 @@ import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-it
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule }   from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { ConfirmDialogService } from 'src/services/confirm-dialog.service';
+import { AngularMaterialModule } from 'src/angular-material.module';
 
 @NgModule({
    declarations: [
@@ -33,7 +34,9 @@ import { ConfirmDialogService } from 'src/services/confirm-dialog.service';
       BrowserAnimationsModule,
       FormsModule,
       HttpClientModule,
-      RouterModule
+      RouterModule,
+      ReactiveFormsModule,
+      AngularMaterialModule
    ],
    exports: [
       ConfirmDialogComponent

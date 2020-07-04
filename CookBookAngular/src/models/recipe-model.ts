@@ -18,7 +18,6 @@ export class RecipeDetail {
 }
 
 export class Ingredient {
-    id: number;
     title: string;
     amount: number;
 }

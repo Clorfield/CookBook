@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';  
 
-@Injectable() export class ConfirmDialogService {  
+@Injectable({
+        providedIn: 'root'
+    })
+export class ConfirmDialogService {  
     private subject = new Subject<any>();  
     constructor() { }  
     confirmThis(message: string, siFn: () => void, noFn: () => void) {  
