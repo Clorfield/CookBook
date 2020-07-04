@@ -1,0 +1,15 @@
+.submit {
+    margin-left: 52px;
+}
+
+.cancel {
+    background-color: #e3e3e3;
+}
+
+h3 {
+    font-family: "Times New Roman", Times, serif;
+}
+
+.btn {
+    margin-bottom: 5px !important;
+}

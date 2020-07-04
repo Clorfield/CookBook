@@ -16,6 +16,9 @@ import { RouterModule } from '@angular/router';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { ConfirmDialogService } from 'src/services/confirm-dialog.service';
 import { AngularMaterialModule } from 'src/angular-material.module';
+import { AddIngredientModalComponent } from 'src/modals/add-ingredient-modal/add-ingredient-modal.component';
+import { IngredientItemComponent } from './ingredient-item/ingredient-item.component';
+import { AddRecipeComponent } from './recipes/add-recipe/add-recipe.component';
 
 @NgModule({
    declarations: [
@@ -27,6 +30,9 @@ import { AngularMaterialModule } from 'src/angular-material.module';
       RecipeItemComponent,
       FooterComponent,
       ConfirmDialogComponent,
+      AddIngredientModalComponent,
+      IngredientItemComponent,
+      AddRecipeComponent
    ],
    imports: [
       BrowserModule,
@@ -38,8 +44,12 @@ import { AngularMaterialModule } from 'src/angular-material.module';
       ReactiveFormsModule,
       AngularMaterialModule
    ],
+   entryComponents: [
+      AddIngredientModalComponent
+   ],
    exports: [
-      ConfirmDialogComponent
+      ConfirmDialogComponent,
+      AddIngredientModalComponent
    ],
    providers: [
       ConfirmDialogService

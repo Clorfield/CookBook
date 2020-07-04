@@ -1,4 +1,4 @@
-<form class="form" formGroup="addRecipeForm" (ngSubmit)="addRecipe()">
+<form class="form" [formGroup]="addRecipeForm">
   <h2>Create your own culinary masterpiece!</h2>
   <hr/>
   <div class="form-group">
@@ -6,7 +6,16 @@
       <input class="form-control" name="title" formControlName="title" />
   </div>
   <div class="form-group">
-    <label>Add ingredient:</label>
+    <div class="center">
+        <button class="btn btn-default" (click)="addIngredient()">Add ingredient</button>
+    </div>
+    <ul>
+        <app-ingredient-item 
+        *ngFor="let ingredient of ingredients"
+        [ingredient]="ingredient"
+        [type]="'edit'"
+        (deleteIngredientEvent)="deleteIngredient($event)"></app-ingredient-item>
+    </ul>
   </div>
   <div class="form-group">
       <label>Some words about your recipe:</label>
@@ -16,8 +25,8 @@
       <label>Full description:</label>
       <input class="form-control" name="description" formControlName="description" />
   </div>
-  <div class="form-group">
-      <button class="btn btn-default" [disabled]="addRecipeForm.invalid">
+  <div class="form-group center">
+      <button class="btn btn-default" (click)="addRecipe()" [disabled]="addRecipeForm.invalid">
           Create!
       </button>
   </div>

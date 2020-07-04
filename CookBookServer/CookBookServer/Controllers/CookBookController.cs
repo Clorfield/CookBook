@@ -38,5 +38,11 @@ namespace CookBookServer.Controllers
         {
             return _recipeBl.RemoveRecipe(recipeId);
         }
+
+        [HttpPost("AddRecipe")]
+        public int AddRecipe([FromBody] AddRecipeDto recipe)
+        {
+            return _recipeBl.AddRecipe(recipe);
+        }
     }
 }

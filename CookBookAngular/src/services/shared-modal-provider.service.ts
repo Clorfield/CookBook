@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { AddIngredientModalComponent } from 'src/modals/add-ingredient-modal/add-ingredient-modal.component';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +8,12 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 export class SharedModalProvider {
   constructor(private dialog: MatDialog) { }
 
-  addAccountModal(patientAccounts: any, patientName: string, saveOnOk: boolean, patientKey?: number, caseKey?: number): MatDialogRef<null> {
-    return this.dialog.open(null, {
+  openAddIngredientModal(): MatDialogRef<AddIngredientModalComponent> {
+    return this.dialog.open(AddIngredientModalComponent, {
       maxHeight: '98%',
       disableClose: true,
-      data: { patientAccounts, patientName, saveOnOk, patientKey, caseKey },
+      data: {  },
+      panelClass: 'custom-dialog-container',
       autoFocus: false
     });
   }

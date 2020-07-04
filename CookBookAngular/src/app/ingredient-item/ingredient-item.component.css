@@ -1,0 +1,9 @@
+.ingredient-container {
+    display: flex;
+    align-items: center;
+}
+
+.ingredient-container-item {
+    display: inline-block;
+    vertical-align: middle
+}

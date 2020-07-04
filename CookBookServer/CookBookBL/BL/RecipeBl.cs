@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
+using CookBookBL.Interfaces;
 using CookBookDAL.Models;
 using CookBookDAL.Repositories;
 using System.Collections.Generic;
 
 namespace CookBookBL.BL
 {
-    public class RecipeBl
+    public class RecipeBl : IRecipeBl
     {
         private readonly IMapper _mapper;
         private readonly RecipesRepository _recipeRepository;
@@ -16,9 +17,9 @@ namespace CookBookBL.BL
             _recipeRepository = new RecipesRepository(_mapper);
         }
 
-        public void AddRecipe(AddRecipeDto item)
+        public int AddRecipe(AddRecipeDto item)
         {
-            _recipeRepository.AddRecipe(item);
+            return _recipeRepository.AddRecipe(item);
         }
 
         public RecipeDetails FindRecipeById(int id)

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, Subject } from 'rxjs';
-import { RecipeDetail, RecipeModel } from 'src/models/recipe-model';
+import { RecipeDetail, RecipeModel, AddRecipeModel } from 'src/models/recipe-model';
 
 @Injectable({
     providedIn: 'root'
@@ -24,5 +24,9 @@ export class RecipesService {
 
   deleteRecipe(recipeId: number): Observable<RecipeModel[]> {
     return this.http.post<RecipeModel[]>(`${this.prefix}/DeleteRecipe`, recipeId);
+  }
+
+  addRecipe(recipe: AddRecipeModel): Observable<void> {
+    return this.http.post<void>(`${this.prefix}/AddRecipe`, recipe);
   }
 }

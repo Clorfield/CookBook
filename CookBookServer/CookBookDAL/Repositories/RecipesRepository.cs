@@ -15,10 +15,11 @@ namespace CookBookDAL.Repositories
             _mapper = mapper;
         }
 
-        public void AddRecipe(AddRecipeDto item)
+        public int AddRecipe(AddRecipeDto item)
         {
             Recipe recipe = _mapper.Map<Recipe>(item);
             MockedData.recipes.Add(recipe);
+            return MockedData.recipes.Find(r => r == recipe).id;
         }
 
         public RecipeDto FindRecipeById(int id)

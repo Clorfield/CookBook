@@ -1,0 +1,9 @@
+<li>
+  <div class="ingredient-container">
+    <div class="ingredient-container-item">{{ ingredient?.title }} - {{ ingredient?.amount }};</div>
+    <i *ngIf="type === 'edit'"
+    class="material-icons md-18 ingredient-container-item pull-right"
+    (click)="deleteIngredient()">delete</i>
+  </div>
+</li>
+

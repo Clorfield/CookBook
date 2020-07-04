@@ -8,5 +8,6 @@ namespace CookBookDAL.Models
         public string shortDescription { get; set; }
         public string description { get; set; }
         public List<IngredientDto> ingredients { get; set; }
+        public int fatherRecipeId { get; set; }
     }
 }
