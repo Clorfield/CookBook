@@ -10,11 +10,15 @@ import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-it
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule }   from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { ConfirmDialogService } from 'src/services/confirm-dialog.service';
+import { AngularMaterialModule } from 'src/angular-material.module';
+import { AddIngredientModalComponent } from 'src/modals/add-ingredient-modal/add-ingredient-modal.component';
+import { IngredientItemComponent } from './ingredient-item/ingredient-item.component';
+import { AddRecipeComponent } from './recipes/add-recipe/add-recipe.component';
 
 @NgModule({
    declarations: [
@@ -26,6 +30,9 @@ import { ConfirmDialogService } from 'src/services/confirm-dialog.service';
       RecipeItemComponent,
       FooterComponent,
       ConfirmDialogComponent,
+      AddIngredientModalComponent,
+      IngredientItemComponent,
+      AddRecipeComponent
    ],
    imports: [
       BrowserModule,
@@ -33,10 +40,16 @@ import { ConfirmDialogService } from 'src/services/confirm-dialog.service';
       BrowserAnimationsModule,
       FormsModule,
       HttpClientModule,
-      RouterModule
+      RouterModule,
+      ReactiveFormsModule,
+      AngularMaterialModule
+   ],
+   entryComponents: [
+      AddIngredientModalComponent
    ],
    exports: [
-      ConfirmDialogComponent
+      ConfirmDialogComponent,
+      AddIngredientModalComponent
    ],
    providers: [
       ConfirmDialogService

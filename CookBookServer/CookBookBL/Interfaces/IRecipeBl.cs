@@ -5,7 +5,7 @@ namespace CookBookBL.Interfaces
 {
     interface IRecipeBl
     {
-        void AddRecipe(AddRecipeDto item);
+        int AddRecipe(AddRecipeDto item);
         RecipeDetails FindRecipeById(int id);
         List<RecipeDto> GetRecipes();
         List<RecipeDto> RemoveRecipe(int id);

@@ -12,6 +12,7 @@ namespace CookBookDAL.Helpers
         {
             CreateMap<AddRecipeDto, Recipe>()
                 .ForMember("id", opt => opt.MapFrom(r => MockedData.recipes.Last().id + 1));
+
             CreateMap<Recipe, RecipeDto>();
             CreateMap<RecipeDto, Recipe>();
             CreateMap<RecipeDto, RecipeDetails>();

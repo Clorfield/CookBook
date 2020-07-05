@@ -15,10 +15,11 @@ namespace CookBookDAL.Repositories
             _mapper = mapper;
         }
 
-        public void AddRecipe(AddRecipeDto item)
+        public int AddRecipe(AddRecipeDto item)
         {
             Recipe recipe = _mapper.Map<Recipe>(item);
             MockedData.recipes.Add(recipe);
+            return MockedData.recipes.Find(r => r == recipe).id;
         }
 
         public RecipeDto FindRecipeById(int id)
@@ -76,6 +77,20 @@ namespace CookBookDAL.Repositories
                         MockedData.recipes[i].childrenRecipies = MockedData.recipes[i].childrenRecipies.Where(r => r.id != id).ToList();
                     }
                 }
+            }
+        }
+
+        public void AddChildrenRecipe(int newRecipeId)
+        {
+            var childRecipe = MockedData.recipes.Find(r => r.id == newRecipeId);
+            var fatherIndex = MockedData.recipes.FindIndex(r => r.id == childRecipe.fatherRecipeId);
+            if (MockedData.recipes[fatherIndex].childrenRecipies != null)
+            {
+                MockedData.recipes[fatherIndex].childrenRecipies.Add(childRecipe);
+            }
+            else
+            {
+                MockedData.recipes[fatherIndex].childrenRecipies = new List<Recipe>() { childRecipe };
             }
         }
     }

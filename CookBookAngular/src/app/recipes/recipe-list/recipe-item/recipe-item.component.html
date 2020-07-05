@@ -1,17 +1,22 @@
 <app-confirm-dialog></app-confirm-dialog> 
 <a (click)="redirectToRecipe()" class="list-group-item list-group-item-action flex-column align-items-start">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-5">
       <div class="d-flex w-100 justify-content-between">
         <h4 class="mb-1">{{ recipe.title }}</h4>
       </div>
     </div>
-    <div class="col-md-1" class="pull-right" (click)="deleteRecipe($event)">
+    <div class="col-md-3">
+      <div class="d-flex w-100 justify-content-between">
+        <a (click)="createRecipeFromCurrent($event)" class="mb-1 purple hover-cursor">(Create recipe based on this)</a>
+      </div>
+    </div>
+    <div class="pull-right" (click)="deleteRecipe($event)">
       <p><i class="material-icons md-18">delete</i></p>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-8">
       <p class="mb-1">{{ recipe.shortDescription }}</p>
     </div>
   </div>

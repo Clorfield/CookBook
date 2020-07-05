@@ -5,7 +5,7 @@ namespace CookBookDAL.Interfaces
 {
     interface IRecipesRepository
     {
-        void AddRecipe(AddRecipeDto item);
+        int AddRecipe(AddRecipeDto item);
         RecipeDto FindRecipeById(int id);
         List<RecipeDto> GetRecipes();
         void RemoveRecipe(int id);
@@ -13,5 +13,6 @@ namespace CookBookDAL.Interfaces
         void UpdateRecipe(RecipeDto item);
         void GetChildrenNodes(List<Recipe> children, Recipe recipe);
         void RemoveRecipeFromParentsRecipies(int id);
+        void AddChildrenRecipe(int newRecipeId);
     }
 }

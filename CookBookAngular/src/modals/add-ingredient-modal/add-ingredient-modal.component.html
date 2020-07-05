@@ -1,0 +1,21 @@
+<header mat-dialog-title>
+  <h3>Add ingredient</h3>
+</header>
+<hr/>
+<mat-dialog-content>
+  <form class="form" [formGroup]="addIngredientForm" (ngSubmit)="addIngredient()">
+    <div class="form-group">
+        <label>Title:</label>
+        <input maxlength="35" class="form-control" name="title" formControlName="title" />
+    </div>
+    <div class="form-group">
+      <label>Amount:</label>
+      <input type="number" min="1" max="99999" pattern="\d*" class="form-control" name="amount" formControlName="amount" />
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="flex">
+  <button [mat-dialog-close]='false' class="btn btn-default cancel">Cancel</button>
+  <button class='btn btn-default submit' [disabled]="addIngredientForm.invalid" (click)="addIngredient()">Add this one!</button>
+</mat-dialog-actions>
