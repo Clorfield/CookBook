@@ -7,6 +7,7 @@ import { AddRecipeComponent } from './recipes/add-recipe/add-recipe.component';
 const appRoutes: Routes =[
   { path: 'recipes', component: RecipesComponent },
   { path: 'addRecipe', component: AddRecipeComponent },
+  { path: 'addRecipe/:id', component: AddRecipeComponent },
   { path: 'recipe/:id', component: RecipeDetailComponent }
 ];
 

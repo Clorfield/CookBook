@@ -79,5 +79,24 @@ namespace CookBookDAL.Repositories
                 }
             }
         }
+
+        public void AddChildrenRecipe(AddRecipeDto recipe)
+        {
+            var fatherIndex = MockedData.recipes.FindIndex(r => r.id == recipe.fatherRecipeId);
+            var childRecipe = new Recipe();
+            childRecipe.title = recipe.title;
+            childRecipe.ingredients = recipe.ingredients;
+            childRecipe.shortDescription = recipe.shortDescription;
+            childRecipe.description = recipe.description;
+            childRecipe.fatherRecipeId = recipe.fatherRecipeId;
+            if (MockedData.recipes[fatherIndex].childrenRecipies != null)
+            {
+                MockedData.recipes[fatherIndex].childrenRecipies.Add(childRecipe);
+            }
+            else
+            {
+                MockedData.recipes[fatherIndex].childrenRecipies = new List<Recipe>() { childRecipe };
+            }
+        }
     }
 }

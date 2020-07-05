@@ -38,4 +38,10 @@ export class RecipeItemComponent implements OnInit {
       });
     }, () => {})  
   }
+
+  createRecipeFromCurrent(event) {
+    event.stopPropagation();
+
+    this.router.navigateByUrl(`/addRecipe/${this.recipe.id}`);
+  }
 }

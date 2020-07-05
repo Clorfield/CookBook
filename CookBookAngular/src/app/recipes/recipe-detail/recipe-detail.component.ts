@@ -34,12 +34,6 @@ export class RecipeDetailComponent implements OnInit {
 
   populateIngredients(recipe: RecipeDetail) {
     recipe.ingredients.forEach(i => this.ingredients.push(i));
-
-    if (recipe.parentRecipes) {
-      recipe.parentRecipes.forEach(pr => {
-        pr.ingredients.forEach(i => this.ingredients.push(i));
-      })
-    }
   }
 
   generateBreadCrumbs(recipe: RecipeDetail) {

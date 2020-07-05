@@ -1,5 +1,6 @@
 <form class="form" [formGroup]="addRecipeForm">
   <h2>Create your own culinary masterpiece!</h2>
+  <h4 *ngIf="fatherId" class="purple">{{ parentRecipeText }}</h4>
   <hr/>
   <div class="form-group">
       <label>Title:</label>
