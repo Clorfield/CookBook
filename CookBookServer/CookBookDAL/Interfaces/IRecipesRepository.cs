@@ -13,6 +13,6 @@ namespace CookBookDAL.Interfaces
         void UpdateRecipe(RecipeDto item);
         void GetChildrenNodes(List<Recipe> children, Recipe recipe);
         void RemoveRecipeFromParentsRecipies(int id);
-        void AddChildrenRecipe(AddRecipeDto recipe);
+        void AddChildrenRecipe(int newRecipeId);
     }
 }

@@ -80,15 +80,10 @@ namespace CookBookDAL.Repositories
             }
         }
 
-        public void AddChildrenRecipe(AddRecipeDto recipe)
+        public void AddChildrenRecipe(int newRecipeId)
         {
-            var fatherIndex = MockedData.recipes.FindIndex(r => r.id == recipe.fatherRecipeId);
-            var childRecipe = new Recipe();
-            childRecipe.title = recipe.title;
-            childRecipe.ingredients = recipe.ingredients;
-            childRecipe.shortDescription = recipe.shortDescription;
-            childRecipe.description = recipe.description;
-            childRecipe.fatherRecipeId = recipe.fatherRecipeId;
+            var childRecipe = MockedData.recipes.Find(r => r.id == newRecipeId);
+            var fatherIndex = MockedData.recipes.FindIndex(r => r.id == childRecipe.fatherRecipeId);
             if (MockedData.recipes[fatherIndex].childrenRecipies != null)
             {
                 MockedData.recipes[fatherIndex].childrenRecipies.Add(childRecipe);

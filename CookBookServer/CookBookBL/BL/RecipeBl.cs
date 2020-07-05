@@ -19,11 +19,10 @@ namespace CookBookBL.BL
 
         public int AddRecipe(AddRecipeDto item)
         {
-            if (item.fatherRecipeId != 0)
-            {
-                _recipeRepository.AddChildrenRecipe(item);
-            }
-            return _recipeRepository.AddRecipe(item);
+            int newRecipeId = _recipeRepository.AddRecipe(item);
+            _recipeRepository.AddChildrenRecipe(newRecipeId);
+
+            return newRecipeId;
         }
 
         public RecipeDetails FindRecipeById(int id)
